@@ -29,4 +29,4 @@ const UrlSchema = new mongoose.Schema({
 });
 
 //Export module to use the mongoose model by providing interface to the database
-module.exports = mongoose.model("Url",UrlSchema);
+mongoose.model("Url",UrlSchema);

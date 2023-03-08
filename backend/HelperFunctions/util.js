@@ -23,3 +23,5 @@ function isValidUrl(string){
         return false;
     }
 }
+
+module.exports = {validateUrl, isValidUrl};
