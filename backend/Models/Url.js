@@ -8,7 +8,7 @@ const UrlSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    originalUrl: {
+    origUrl: {
         type:String,
         required:true,
     },

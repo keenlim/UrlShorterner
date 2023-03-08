@@ -8,7 +8,7 @@ const mongoose = require("mongoose");
 //shortid generates a non-sequential short unique ids
 const shortid = require("shortid");
 require("./Models/Url");
-const URL = mongoose.model("Url");
+const Url = mongoose.model("Url");
 const utils = require("./HelperFunctions/util");
 const app = express();
 app.use(express.json());
@@ -37,10 +37,12 @@ mongoose
 
 //Get all saved URLs
 app.get("/all",async(req,res) => {
-    URL.find((error,data) => {
+    Url.find((error,data) => {
         if(error){
+            console.log("Get succesful")
             return next(error);
         }else{
+            console.log("Get unsuccesful");
             res.json(data);
         }
     });
@@ -64,11 +66,11 @@ app.post("/short",async(req,res) => {
             if(url){
                 res.json(url);
             }else{
-                const shortenUrl = `${base}/${urlId}`;
+                const shortUrl = `${base}/${urlId}`;
 
                 url = new Url({
                     origUrl,
-                    shortenUrl,
+                    shortUrl,
                     urlId,
                     date: new Date(),
                 });
